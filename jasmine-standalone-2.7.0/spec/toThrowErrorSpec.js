@@ -1,14 +1,14 @@
 describe("Match toThrowError", () => {
     it('Should validate the use of toThrowError', () => {
         
-        var calculatehalf = function(number) {
-            if(number <= 0){
+        var calculatehalf = (number) => {
+            if(number <= 0) {
                 throw new TypeError("The number must be greater than 0.");
             }
             return number/number;
         }
 
-        expect(function(){calculatehalf(0)}).toThrowError();
+        expect(() => {calculatehalf(0)}).toThrowError();
         expect(function(){calculatehalf(0)}).toThrowError(TypeError);
         expect(() => {calculatehalf(0)}).toThrowError(TypeError, "The number must be greater than 0.");
         expect(function(){calculatehalf(0)}).toThrowError(/must be greater/);
